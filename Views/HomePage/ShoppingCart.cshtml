@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout="~/Views/Shared/_cart.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShoppingCart</title>
+</head>
+<body>
+
+
+
+    <div class="container">
+        <h2>Products Selected </h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+             @{
+                 
+                 var List=Session["Cart"] as IEnumerable<Cloth_store.Models.Product>;
+                foreach (var k in List)
+                { 
+                <tr>
+
+                    <td>  @k.Id </td>
+                    <td>  @k.Name</td>
+                    <td>  @k.Price</td>
+                </tr>
+                
+                
+                } 
+             }
+               
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
